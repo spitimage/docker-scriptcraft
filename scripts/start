@@ -3,18 +3,26 @@
 # docker-minecraft /start script
 #
 # Authors: Isaac Bythewood
-# Updated: Dec 14th, 2014
+# Scriptcraft modifications: Aaron Nielsen
+# Updated: Feb 22, 2015
 # -----------------------------------------------------------------------------
 
 
 if [ ! -f /data/minecraft_server.jar ]
 then
-    curl "https://s3.amazonaws.com/Minecraft.Download/versions/1.8.1/minecraft_server.1.8.1.jar" -o /data/minecraft_server.jar
+    curl "http://canarymod.net/download/file/fid/309" -o /data/minecraft_server.jar
 fi
 
 if [ ! -f /data/eula.txt ]
 then
     echo "eula=true" > /data/eula.txt
+fi
+
+
+if [ ! -f /data/plugins/scriptcraft.jar ]
+then
+    mkdir -p /data/plugins
+    curl "http://scriptcraftjs.org/download/latest/scriptcraft-3.1.2/scriptcraft.jar" -o /data/plugins/scriptcraft.jar
 fi
 
 cd /data/; java -Xmx2G -jar minecraft_server.jar nogui
