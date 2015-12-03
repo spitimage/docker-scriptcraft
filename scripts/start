@@ -10,7 +10,7 @@
 
 if [ ! -f /data/minecraft_server.jar ]
 then
-    curl "http://canarymod.net/download/file/fid/231" -o /data/minecraft_server.jar
+    curl "http://scriptcraftjs.org/download/latest/CanaryMod-1.8.0-1.2.1-SNAPSHOT-shaded.jar" -o /data/minecraft_server.jar
 fi
 
 if [ ! -f /data/eula.txt ]
